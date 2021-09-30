@@ -55,8 +55,36 @@ zoom factor = ideal viewport width / visual viewport width
 
 
 
+## 移动端布局视口和视觉视口
 
+Imagine the layout viewport as being a large image which does not change size or shape. Now image you have a smaller frame through which you look at the large image. The small frame is surrounded by opaque material which obscures your view of all but a portion of the large image. The portion of the large image that you can see through the frame is the visual viewport. You can back away from the large image while holding your frame (zoom out) to see the entire image at once, or you can move closer (zoom in) to see only a portion. You can also change the orientation of the frame, but the size and shape of the large image (layout viewport) never changes.
+
+布局视口就是整个页面的大小(CSS像素)。
+
+1. html标签的宽度取的是布局视口的宽度
+2. 不同的浏览器布局视口不同。 Safari iPhone uses 980px, Opera 850px, Android WebKit 800px, and IE 974px.
+3. 当浏览器缩小到最小时，布局视口 = 视觉视口，即屏幕显示所有内容(宽度)
+4. 如何测量布局视口？`document.documentElement.clientWidth` and `-Height` 
+
+视觉视口就是能看到的内容大小，当我们缩放屏幕时，改变的是视觉视口。
+
+1. 测量视觉视口？`window.innerWidth/Height`. 
+
+   - 实测不一定！华为mate20X、QQ浏览器
+
+     <meta name="viewport" content="width=1080, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+
+     得到的innerWidth为647。换成edge浏览器的话是360
+
+2. 缩放倍数 = window.innerWidth / screen.width？ **实测不是！！！**
+
+
+
+screen.width/height是设备物理像素？ **实测是设备独立像素**
 
 ## 结论
 
-用户看到的内容就是视觉视口
+1. 用户看到内容窗口是视觉视口。
+2. html标签的大小为布局视口(溢出不算)没有meta标签时，布局视口由浏览器决定(移动端很多浏览器默认布局视口为980px)。有meta标签时，可以通过设置meta标签的width属性来设置布局视口的大小。
+3. 理想视口
+
