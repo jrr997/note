@@ -225,8 +225,15 @@ export default class Father extends PureComponent {
 
 React在处理原生表单时，可以实现与表单元素的"双向绑定"，这就是受控组件。并不是所有表单元素都受控，比如说上传文件。
 
+```javascript
+<textarea value={this.state.value} onChange={this.handleChange} />
+```
+
+简单来讲，受控组件就是给组件提供一个value， 一个onChange。value 用于渲染当前的UI视图，在用户触发操作，需要更新value的时候，组件调用onChange，由上层组件负责更新状态。（这就是双向绑定）
+
 如果不通过双向绑定，如何获取表单元素中的值？
 
 用ref直接从DOM元素中获取值。这就是非受控组件。
 
 **总结：**受控指的是表单元素受所在的组件控制，即表单元素能与组件进行双向绑定。非受控组件是指组件通过ref获取表单元素的值。
+
