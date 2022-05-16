@@ -8,10 +8,6 @@
 - [依赖图](https://webpack.js.org/concepts/dependency-graph/)
 - 模块化规范commonjs、esModule和[webpack的模块概念](https://webpack.js.org/concepts/modules/)
 
-webpack如何生成依赖图？
-
-首先要知道入口文件的位置。从入口文件开始出发，寻找import语句(递归)，
-
 
 
 什么是webpack？
