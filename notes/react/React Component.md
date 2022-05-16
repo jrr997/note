@@ -1,4 +1,4 @@
-# React Component
+# React 生命周期
 
 ## constructor
 
@@ -27,4 +27,37 @@
 `componentDidUpdate(prevProps, prevState, snapshot)`
 
 在newProps、setState()、forceUpdate()后触发。
+
+
+
+
+
+生命周期图：https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
+
+
+挂载时：
+
+- [**`constructor()`**](https://zh-hans.reactjs.org/docs/react-component.html#constructor)
+- [`static getDerivedStateFromProps()`](https://zh-hans.reactjs.org/docs/react-component.html#static-getderivedstatefromprops)
+- [**`render()`**](https://zh-hans.reactjs.org/docs/react-component.html#render)
+- [**`componentDidMount()`**](https://zh-hans.reactjs.org/docs/react-component.html#componentdidmount)
+
+关于getDerivedStateFromProps：
+
+getDerivedStateFromProps在render调用前调用，包括挂载时和更新时。实际上只要父级重新渲染时，这个生命周期函数就会重新调用，不管 props 有没有“变化”。
+
+
+
+更新时：
+
+- [`static getDerivedStateFromProps()`](https://zh-hans.reactjs.org/docs/react-component.html#static-getderivedstatefromprops)
+- [`shouldComponentUpdate()`](https://zh-hans.reactjs.org/docs/react-component.html#shouldcomponentupdate)
+- [**`render()`**](https://zh-hans.reactjs.org/docs/react-component.html#render)
+- [`getSnapshotBeforeUpdate()`](https://zh-hans.reactjs.org/docs/react-component.html#getsnapshotbeforeupdate)
+- [**`componentDidUpdate()`**](https://zh-hans.reactjs.org/docs/react-component.html#componentdidupdate)
+
+
+
+卸载时：componentWillUnmount
 
